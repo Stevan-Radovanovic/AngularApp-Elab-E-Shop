@@ -39,4 +39,11 @@ export class HomePageComponent implements OnInit {
   ];
 
   ngOnInit(): void {}
+
+  deleteProduct(product: Product) {
+    this.products = this.products.filter((prod) => {
+      return prod !== product;
+    });
+    console.log(this.products);
+  }
 }

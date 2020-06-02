@@ -7,12 +7,19 @@
           <img src="{{ product.image }}" alt="Product image" />
         </figure>
       </div>
-      <div class="columns">
-        <div class="column is-7 is-offset-1">
-          <strong>{{ product.title }}</strong>
-        </div>
-        <div class="column is-4">
-          <i>{{ product.price }} RSD</i>
+      <div class="card-content">
+        <div class="columns" style="align-items: center;">
+          <div class="column is-4 is-offset-1">
+            <strong>{{ product.title }}</strong>
+          </div>
+          <div class="column is-3">
+            <i>{{ product.price }} RSD</i>
+          </div>
+          <div class="column is-2">
+            <a class="button is-danger" (click)="deleteProduct(product)"
+              >Delete</a
+            >
+          </div>
         </div>
       </div>
     </div>
