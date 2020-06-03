@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Product } from './product.model';
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
+  constructor(private http: HttpClient) {}
+
   products: Product[] = [
     {
       id: '1',
@@ -37,12 +40,25 @@ export class ProductService {
 
   productSubject = new BehaviorSubject<Product[]>(this.products);
 
-  constructor() {}
-
   deleteProduct(product: Product) {
     this.products = this.products.filter((prod) => {
       return prod !== product;
     });
     this.productSubject.next(this.products);
+  }
+
+  addNewProduct(product: Product) {
+    this.products.push(product);
+    this.productSubject.next(this.products);
+  }
+
+  test() {
+    this.http
+      .get(
+        'https://my-json-server.typicode.com/Stevan-Radovanovic/FakeJSONdb/products'
+      )
+      .subscribe((response) => {
+        console.log(response);
+      });
   }
 }

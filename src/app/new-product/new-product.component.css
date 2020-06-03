@@ -1,0 +1,5 @@
+.box {
+  background-color: hsl(48, 100%, 67%);
+  margin: auto;
+  max-width: 80%;
+}

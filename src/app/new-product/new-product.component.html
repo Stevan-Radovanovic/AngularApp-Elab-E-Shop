@@ -1,3 +1,57 @@
 <hr />
-<p>Work in Progress</p>
+<div class="columns">
+  <div
+    class="column is-6 is-offset-3 box"
+    style="text-align: center; padding-bottom: 16px;"
+  >
+    <h1 class="title">
+      Add a new product!
+    </h1>
+  </div>
+</div>
+<hr />
+<div class="columns">
+  <div class="column is-6 is-offset-3 box">
+    <form [formGroup]="productForm" (submit)="onSubmit()">
+      <div class="field">
+        <div class="control">
+          <label class="label">Title</label>
+          <input
+            type="text"
+            class="input"
+            placeholder="Enter the product name"
+            formControlName="title"
+          />
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <label class="label">Price</label>
+          <input
+            class="input"
+            type="number"
+            placeholder="Enter the product price"
+            formControlName="price"
+          />
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <label class="label">Image URL</label>
+          <input
+            class="input"
+            type="text"
+            placeholder="Enter the image url"
+            formControlName="image"
+          />
+        </div>
+      </div>
+      <div class="control">
+        <button [disabled]="!productForm.valid" type="submit" class="button">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
 <hr />
