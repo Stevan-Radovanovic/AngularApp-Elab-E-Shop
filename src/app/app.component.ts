@@ -10,6 +10,6 @@ export class AppComponent {
   title = 'AngularProjekat';
 
   constructor(private service: ProductService) {
-    this.service.test();
+    this.service.getProducts();
   }
 }
